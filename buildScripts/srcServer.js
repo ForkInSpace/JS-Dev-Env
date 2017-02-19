@@ -1,0 +1,19 @@
+var express = require('express'),
+    path = require('path'),
+    open = require('open');
+
+
+var port = 3001;
+
+var app = express();
+
+app.get('/', function(req, res){
+  res.sendFile(path.join(__dirname, '../src/index.html'));
+});
+
+app.listen(port, function(err){
+  if(err)
+    console.log(err)
+  else
+    open('http://localhost:' + port);
+})
